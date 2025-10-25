@@ -7,12 +7,43 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <header id="header">
+      <div class="header-container">
+        <h1 class="header-title">Consistent Hashing Visualizer</h1>
+        <nav class="header-nav">
+          <button id="how-it-works-header-btn" class="header-how-it-works-btn">? How it Works</button>
+          <a href="https://brianhliou.github.io/" target="_blank" rel="noopener noreferrer">Brian Liou</a>
+          <a href="https://github.com/brianhliou" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
+      </div>
+    </header>
     <main>
       <canvas id="ring" width="400" height="400" aria-label="Hash ring canvas"></canvas>
       <div id="controls">
         <p>Control panel placeholder</p>
       </div>
     </main>
+    <div id="modal" class="modal" style="display: none;">
+      <div class="modal-backdrop"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>How This Works</h2>
+          <button id="modal-close" class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>This visualizer demonstrates consistent hashing, a technique used in distributed systems to distribute data across multiple servers.</p>
+          <h3>Key Concepts</h3>
+          <ul>
+            <li><strong>Hash Ring:</strong> A circular space where both servers and keys are placed using a hash function.</li>
+            <li><strong>Virtual Nodes (Replicas):</strong> Each physical server is mapped to multiple points on the ring for better distribution.</li>
+            <li><strong>Key Assignment:</strong> Keys are assigned to the next server clockwise on the ring.</li>
+            <li><strong>Replication:</strong> Keys can be assigned to multiple servers for redundancy.</li>
+          </ul>
+          <h3>Try It Out</h3>
+          <p>Use the controls to add/remove servers, adjust replicas, and see how keys redistribute. Notice how consistent hashing minimizes key movement when servers change.</p>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

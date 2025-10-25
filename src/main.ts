@@ -15,6 +15,36 @@ if (!controls) {
   throw new Error("Missing controls container with id 'controls'");
 }
 
+// Setup modal
+const modal = document.querySelector<HTMLElement>("#modal");
+const modalClose = document.querySelector<HTMLElement>("#modal-close");
+const modalBackdrop = modal?.querySelector<HTMLElement>(".modal-backdrop");
+const headerHowItWorksBtn = document.querySelector<HTMLElement>("#how-it-works-header-btn");
+
+function openModal() {
+  if (modal) {
+    modal.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
+}
+
+function closeModal() {
+  if (modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "unset";
+  }
+}
+
+modalClose?.addEventListener("click", closeModal);
+modalBackdrop?.addEventListener("click", closeModal);
+headerHowItWorksBtn?.addEventListener("click", openModal);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal?.style.display === "block") {
+    closeModal();
+  }
+});
+
 createInitialState();
 
 subscribe((state) => {
@@ -37,6 +67,6 @@ subscribe((state) => {
   });
 });
 
-mountControls(controls);
+mountControls(controls, openModal);
 
 console.log("boot", getState());

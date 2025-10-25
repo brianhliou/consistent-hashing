@@ -5,7 +5,7 @@ import { nodeOrder, shares as computeShares, movedPercent } from "./metrics";
 import { subscribe, update } from "./state";
 import type { LabState, Node } from "./types";
 
-export function mountControls(root: HTMLElement): void {
+export function mountControls(root: HTMLElement, openModal: () => void): void {
   root.innerHTML = "";
 
   const container = document.createElement("div");
@@ -45,7 +45,7 @@ export function mountControls(root: HTMLElement): void {
   nodeList.style.display = "flex";
   nodeList.style.flexDirection = "column";
   nodeList.style.gap = "0.4rem";
-  nodeList.style.minHeight = "calc(1.3rem * 8)";
+  nodeList.style.minHeight = "calc(1.3rem * 5)";
   nodeList.style.paddingBottom = "0.25rem";
 
   const metricsSection = document.createElement("div");
@@ -66,7 +66,7 @@ export function mountControls(root: HTMLElement): void {
   shareList.style.flexDirection = "column";
   shareList.style.gap = "0.2rem";
   shareList.style.fontSize = "0.8rem";
-  shareList.style.minHeight = "calc(1.05rem * 8)";
+  shareList.style.minHeight = "calc(1.05rem * 5)";
 
   const movedLine = document.createElement("div");
   movedLine.style.fontSize = "0.85rem";
