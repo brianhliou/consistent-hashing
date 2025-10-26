@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(circle at top, #f5f5f5, #d9d9d9);
+  background: #ffffff;
 }
 
 /* Header Styles */
@@ -108,8 +108,8 @@ main {
 #ring {
   width: 580px;
   height: 580px;
-  border: 2px dashed #4a5568;
-  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  background: transparent;
   flex-shrink: 0;
 }
 
